@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "week10": {
+    "movieAng": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,18 +13,19 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/week10",
+            "outputPath": "dist/movieAng",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
+            "aot": false,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -41,6 +42,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -62,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "week10:build"
+            "browserTarget": "movieAng:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "week10:build:production"
+              "browserTarget": "movieAng:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "week10:build"
+            "browserTarget": "movieAng:build"
           }
         },
         "test": {
@@ -88,7 +90,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           }
@@ -110,15 +113,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "week10:serve"
+            "devServerTarget": "movieAng:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "week10:serve:production"
+              "devServerTarget": "movieAng:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "week10"
+    }
+  },
+  "defaultProject": "movieAng",
+  "cli": {
+    "analytics": "8e68b063-dd12-46f6-9bd3-8eff2fe57229"
+  }
 }
